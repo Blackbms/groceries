@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item List</title>
+    <style>
+        body {
+            background-color: blue;
+            color: white; /* Optional: to make the text readable on a blue background */
+        }
+    </style>
+</head>
+<body>
+    <h1>Available Items</h1>
+    <ul>
+        {% for item in items %}
+            <li>ID: {{ item[0] }}, Name: {{ item[1] }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Add New Item</h2>
+    <form action="/add_item" method="post">
+        <label for="item_name">Item Name:</label>
+        <input type="text" id="item_name" name="item_name" required>
+        <button type="submit">Add Item</button>
+    </form>
+
+    <h2>Purge All Tables</h2>
+    <form action="/purge_tables" method="post">
+        <button type="submit">Purge All Tables</button>
+    </form>
+</body>
+</html>
